@@ -9,7 +9,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 
 @Service
@@ -36,7 +35,7 @@ public class ImageStore {
 
         try {
             byte[] bytes = file.getBytes();
-            Files.write(Paths.get(UPLOAD_PATH, String.valueOf(image.getId())), bytes);
+            Files.write(Paths.get(UPLOAD_PATH, image.getId() + "_" + file.getOriginalFilename()), bytes);
             return "ok";
         } catch (IOException e) {
             e.printStackTrace();
