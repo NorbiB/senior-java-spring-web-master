@@ -47,8 +47,11 @@ public class ImageStoreTest {
                 .andExpect(status().isOk());
 
         Path filePath = Paths.get(STORAGE_PATH, "1_" + mockMultipartFile.getOriginalFilename());
+        Path metadataPath = Paths.get(STORAGE_PATH, "1_" + mockMultipartFile.getOriginalFilename().split("\\.")[0]+".json");
         assertTrue(Files.exists(filePath));
+        assertTrue(Files.exists(metadataPath));
 
         Files.delete(filePath);
+        Files.delete(metadataPath);
     }
 }
