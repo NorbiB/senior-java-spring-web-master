@@ -1,6 +1,8 @@
 Megoldás
 ========
-A kép adatait (name, mimeType, size, path, ...) feltöltésnél eltárolom egy adatbázisban, így az id alapján gyorsan visszakapható a path-on keresztül a kép, valamint ha egy idő után a képeket másik directory-ban szeretnénk tárolni, akkor a régi képekről is tduni fogjuk, hogy hol voltak. Emellett a kép nevének elejére is befűzöm az adatbázisból kapott id-t (id_name) és egy metadata fájlban eltárolom a kép mellé a metaadatait, hogy ha az adatbázis elveszne, vissza lehessen állítani a metadata fájlokból.
+A kép adatait (name, mimeType, size, path, ...) feltöltésnél eltárolom egy adatbázisban, így az id alapján gyorsan visszakapható a path-on keresztül a kép, valamint ha egy idő után a képeket másik directory-ban szeretnénk tárolni, akkor a régi képekről is tduni fogjuk, hogy hol voltak. 
+
+Emellett a kép nevének elejére is befűzöm az adatbázisból kapott id-t (id_name), így az azonos nevű képek feltöltése sem okoz gondot. Egy metadata fájlban eltárolom a kép mellé a metaadatait, hogy ha az adatbázis elveszne, vissza lehessen állítani a metadata fájlokból.
 A fájlok tárolásának helyét, valamint az adatbázis kapcsolatot az application.properties fájlban lehet megadni. Adatbázisnak az egyszerűség kedvéért a H2 in-memory database-t használtam, de ez bármikor átkonfigurálható. 
 
 Az UploadController-re írtam egy JUnit tesztet is. 
